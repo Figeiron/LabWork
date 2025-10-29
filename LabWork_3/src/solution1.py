@@ -1,4 +1,4 @@
-class BirthDate:
+class BirthDate:  # створимо клас для зрозумілішого запису дати народження
     def __init__(self, birthday_string: str):
         if len(birthday_string) != 8:
             raise ValueError
@@ -7,7 +7,6 @@ class BirthDate:
         self.day = int(birthday_string[:2:])
         self.month = int(birthday_string[2:4:])
         self.year = int(birthday_string[4::])
-
 
 
 while True:
@@ -21,26 +20,32 @@ while True:
     except ValueError:
         print("Спробуйте знову")
 
-
-if A == birthday.day:
+if A == birthday.day:  # Перевіримо чи число A є днем народження
     print("A == дню народження")
-elif B == birthday.day:
+else:
+    print("A не != дню народження")
+
+if B == birthday.day:  # Перевіримо чи число B є днем народження
     print("B == дню народження")
 else:
-    print("A і B не != дню народження")
+    print("B не != дню народження")
 
-
-if A == birthday.month:
+if A == birthday.month:  # Перевіримо чи число A є місяцем народження
     print("A == місяцю народження")
-elif B == birthday.month:
+else:
+    print("A не != місяцю народження")
+
+if B == birthday.month:  # Перевіримо чи число B є місяцем народження
     print("B == місяцю народження")
 else:
-    print("A і B не != місяцю народження")
+    print("B не != місяцю народження")
 
-
-if A == birthday.year:
+if A == birthday.year: # Перевіримо чи число A є роком народження
     print("A == року народження")
-elif B == birthday.year:
+else:
+    print("A != року народження")
+
+if B == birthday.year: # Перевіримо чи число B є роком народження
     print("B == року народження")
 else:
-    print("A і B != року народження")
+    print("B != року народження")

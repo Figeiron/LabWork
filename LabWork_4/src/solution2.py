@@ -22,6 +22,7 @@ def find_same_digits(number: int) -> None | int:
     key, value = list(num_digits_map.items())[-1]  # візьмемо найбільше пару значень цифри та її кількості
     if int(key) >= 5 and value == 2:  # перевіримо чи задовільняє умову число
         return number  # повертаєм значення в випадку успіху
+    return None
 
 
 for i in range(int(A) + 1):  # створюємо цикл для перебору значень в діапазоні (0; A]

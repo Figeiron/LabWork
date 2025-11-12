@@ -26,7 +26,7 @@ def find_same_digits(number: int) -> None | int:
 
 
 for i in range(int(A) + 1):  # створюємо цикл для перебору значень в діапазоні (0; A]
-    first_number = find_same_digits(i)  # передаємо результат ітерації в ф-цію в якості успіху отримаємо це ж число
+    first_number = find_same_digits(i)  # передаємо результат ітерації в ф-цію в випадку успіху отримаємо це ж число
     if first_number:
         break  # виходимо з циклу у випадку успіху
 

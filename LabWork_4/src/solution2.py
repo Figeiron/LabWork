@@ -17,22 +17,22 @@ first_number = None  # ініціалізуємо змінні для збере
 last_number = None
 
 
-def find_same_digits(number: int) -> None | int:
+def is_contain_same_digits(number: int) -> None | bool:
     num_digits_map = Counter(str(number))  # підрахуємо кількість цифер в числі
-    key, value = list(num_digits_map.items())[-1]  # візьмемо найбільше пару значень цифри та її кількості
+    key, value = list(num_digits_map.items())[-1]  # візьмемо найбільшу пару значень цифри та її кількості
     if int(key) >= 5 and value == 2:  # перевіримо чи задовільняє умову число
-        return number  # повертаєм значення в випадку успіху
-    return None
+        return True
+    return False
 
 
 for i in range(int(A) + 1):  # створюємо цикл для перебору значень в діапазоні (0; A]
-    first_number = find_same_digits(i)  # передаємо результат ітерації в ф-цію в випадку успіху отримаємо це ж число
-    if first_number:
+    if is_contain_same_digits(i):  # передаємо число до ф-ції
+        first_number = i  # записуємо число у випадку успіху
         break  # виходимо з циклу у випадку успіху
 
 for i in range(int(A), -1, -1):  # створюємо цикл для перебору значень в діапазоні [A; 0)
-    last_number = find_same_digits(i)
-    if last_number:
+    if is_contain_same_digits(i):
+        last_number = i
         break
 
 print(f"Перше число в діапазоні [0; {A}] з двома однаковими цифрами {first_number}, а останнє {last_number}")

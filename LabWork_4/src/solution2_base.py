@@ -1,3 +1,5 @@
+from collections import Counter
+
 while True:
     print("Введіть сотні десятки і десятки до числа A")
     try:
@@ -11,24 +13,23 @@ while True:
 
 A = a3 * 100 + a2 * 10 + a1  # складаємо задані цифри в число A
 
-A_range = range(0, A + 1)  # Створимо діапазон чисел (0; A]
-
 first_number = None  # ініціалізуємо змінні для збереження чисел задовільняючих умову
 last_number = None
 
+A_range = range(0, A + 1)  # Створимо діапазон чисел (0; A]
 
-def is_contain_same_digits(number: int) -> bool:
-    digits = list(map(int, str(number)))  # перетворимо число в масив цифр
-    for digit in set(digits):  # створимо цикл для перебору унікальних цифр числа
-        if digit >= 5 and digits.count(digit) == 2:  # перевіримо чи задовільняє число умову
-            return True
+def is_contain_same_digits(number: int) ->  bool:
+    num_digits_map = Counter(str(number))  # підрахуємо кількість цифер в числі
+    key, value = list(num_digits_map.items())[-1]  # візьмемо найбільшу пару значень цифри та її кількості
+    if int(key) >= 5 and value == 2:  # перевіримо чи задовільняє умову число
+        return True
     return False
 
 
 for i in A_range:  # створимо цикл для перебору чисел діапазону
-    if is_contain_same_digits(i):  # перевіримо число
-        first_number = i  # у випадку успіху запишемо число
-        break
+    if is_contain_same_digits(i):  # передаємо число до ф-ції
+        first_number = i  # записуємо число у випадку успіху
+        break  # виходимо з циклу у випадку успіху
 
 for i in reversed(A_range):  # створимо цикл для перебору чисел діапазону з кінця
     if is_contain_same_digits(i):

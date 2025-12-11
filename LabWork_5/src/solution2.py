@@ -1,10 +1,15 @@
+import re
+
 while True:
     try:
-        text = input("Введіть текст довжиною не менше 100 символів: ")
+        text = input("Введіть текст довжиною не менше 100 символів та не менше 3 речень (кінець речення \". \"): ")
         K = int(input("Введіть ціле число K: "))
 
         if len(text) < 100:
-            raise ValueError("Введено неправльний текст")
+            raise ValueError("Введено менше 100 символів")
+
+        if len(re.findall(r"\. ", text) + re.findall(r"\.$", text)) <= 3:
+            raise ValueError("Введено менше 3 речень")
 
         break
 

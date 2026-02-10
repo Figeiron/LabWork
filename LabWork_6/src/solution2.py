@@ -1,6 +1,7 @@
 """
 Завдання взяті з лабораторної роботи номер 4
 """
+from openpyxl.styles.builtins import output
 
 
 # Переробка завдання 1
@@ -16,35 +17,38 @@ class BirthDate:
 
 
 def solution1(A, B, birthday: BirthDate):
+    output = []
     if A == birthday.day:
-        print("A == дню народження")
+        output.append("A == дню народження")
     else:
-        print("A не != дню народження")
+        output.append("A не != дню народження")
 
     if B == birthday.day:
-        print("B == дню народження")
+        output.append("B == дню народження")
     else:
-        print("B не != дню народження")
+        output.append("B не != дню народження")
 
     if A == birthday.month:
-        print("A == місяцю народження")
+        output.append("A == місяцю народження")
     else:
-        print("A не != місяцю народження")
+        output.append("A не != місяцю народження")
 
     if B == birthday.month:
-        print("B == місяцю народження")
+        output.append("B == місяцю народження")
     else:
-        print("B не != місяцю народження")
+        output.append("B не != місяцю народження")
 
     if A == birthday.year:
-        print("A == року народження")
+        output.append("A == року народження")
     else:
-        print("A != року народження")
+        output.append("A != року народження")
 
     if B == birthday.year:
-        print("B == року народження")
+        output.append("B == року народження")
     else:
-        print("B != року народження")
+        output.append("B != року народження")
+
+    return "\n".join(output)
 
 
 while True:
@@ -53,7 +57,7 @@ while True:
         B = int(input("Введіть B: "))
 
         birthday = BirthDate(input("Введіть дату народження(ddmmyyyy):"))
-        solution1(A, B, birthday)
+        print(solution1(A, B, birthday))
         break
 
     except ValueError:

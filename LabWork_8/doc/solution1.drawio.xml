@@ -1,0 +1,192 @@
+<mxfile host="drawio-plugin" modified="2026-02-11T10:28:16.274Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" etag="53YTnidfJiAnEYMTnLvA" version="22.1.22" type="embed" pages="2">
+  <diagram id="Lab8Flowchart" name="solution1_logic">
+    <mxGraphModel dx="683" dy="1108" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" value="Початок" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="init_ratings" value="Ініціалізація діапазону оцінок ratings = [0..100]" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="334" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="check_ratings" value="Чи порожній ratings?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="339" y="240" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="raise_error" target="end" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="1040" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="560" y="1040" />
+              <mxPoint x="414" y="1040" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="raise_error" value="ValueError" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="init_counter" value="counter =&amp;nbsp; RatingCounter()" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="198" y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="loop" value="i=0; 100; 1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="178" y="460" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="create_rating" value="rating = Rating(i)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="198" y="560" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_ects" value="Обчислення ECTS (rating.__calc_ECTS_rating)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="198" y="660" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="add_to_table" value="counter.add: Оновлення хеш-таблиці підрахунку" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="198" y="760" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="add_to_table" target="loop" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="278" y="840" />
+              <mxPoint x="144" y="840" />
+              <mxPoint x="144" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="print_results" value="Вивід результатів (get_pretty_table)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="188" y="960" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="1060" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="init_ratings" target="check_ratings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="check_ratings" target="raise_error" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint value="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3_label" value="True" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge3" vertex="1" connectable="0">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="check_ratings" target="init_counter" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="278" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4_label" value="False" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge4" vertex="1" connectable="0">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint x="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="init_counter" target="loop" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="loop" target="create_rating" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="create_rating" target="calc_ects" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="calc_ects" target="add_to_table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="loop" target="print_results" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="414" y="490" />
+              <mxPoint x="414" y="920" />
+              <mxPoint x="278" y="920" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="print_results" target="end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="start" target="init_ratings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="CalcECTSFlowchart" name="calc_ECTS_rating_logic">
+    <mxGraphModel dx="683" dy="1108" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="calc_0" />
+        <mxCell id="calc_1" parent="calc_0" />
+        <mxCell id="calc_start" value="Початок (calc_ECTS_rating)" style="ellipse;whiteSpace=wrap;html=1;" parent="calc_1" vertex="1">
+          <mxGeometry x="354" y="40" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_input" value="numeric_rating" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="calc_1" vertex="1">
+          <mxGeometry x="354" y="120" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_loop" value="Для кожної (ECTS, threshold) в Rating.table" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="calc_1" vertex="1">
+          <mxGeometry x="314" y="200" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_cond" value="numeric_rating &gt;= threshold?" style="rhombus;whiteSpace=wrap;html=1;" parent="calc_1" vertex="1">
+          <mxGeometry x="324" y="300" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_return" value="return ECTS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="calc_1" vertex="1">
+          <mxGeometry x="580" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_raise" value="raise ValueError(&quot;Rating out of range&quot;)" style="whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="calc_1" vertex="1">
+          <mxGeometry x="344" y="440" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" parent="calc_1" vertex="1">
+          <mxGeometry x="374" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_start" target="calc_input" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_input" target="calc_loop" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_loop" target="calc_cond" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_cond" target="calc_return" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_edge4_label" value="Так" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="calc_edge4" vertex="1" connectable="0">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="calc_edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="calc_1" source="calc_cond" target="calc_loop" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="340" />
+              <mxPoint x="280" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="calc_edge5_label" value="Ні" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="calc_edge5" vertex="1" connectable="0">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="calc_edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_loop" target="calc_raise" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="230" />
+              <mxPoint x="580" y="410" />
+              <mxPoint x="434" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="calc_edge7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_return" target="calc_end" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="530" />
+              <mxPoint x="434" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="calc_edge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="calc_1" source="calc_raise" target="calc_end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,302 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.8" pages="4">
+  <diagram id="S2Logic" name="solution2_logic">
+    <mxGraphModel dx="293618" dy="165800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-10" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="980" width="440" x="-288440" y="-163430" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-8" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s2_gen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_start" parent="O_Omsj7NNCD-N1zRw8pb-10" style="ellipse;whiteSpace=wrap;html=1;" value="Початок" vertex="1">
+          <mxGeometry height="40" width="120" x="74" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-9" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_gen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s2_check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_gen" parent="O_Omsj7NNCD-N1zRw8pb-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="example_array = array_gen()" vertex="1">
+          <mxGeometry height="60" width="160" x="54" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_check" parent="O_Omsj7NNCD-N1zRw8pb-10" style="rhombus;whiteSpace=wrap;html=1;" value="not example_array?" vertex="1">
+          <mxGeometry height="80" width="160" x="54" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_error" parent="O_Omsj7NNCD-N1zRw8pb-10" style="whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="raise ValueError" vertex="1">
+          <mxGeometry height="60" width="120" x="260" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-1" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_find_max" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s2_find_min">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_find_max" parent="O_Omsj7NNCD-N1zRw8pb-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="max_of_array = find_max(example_array)" vertex="1">
+          <mxGeometry height="60" width="268" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-2" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_find_min" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s2_print_init">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_find_min" parent="O_Omsj7NNCD-N1zRw8pb-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="min_of_array = find_min(example_array)" vertex="1">
+          <mxGeometry height="60" width="268" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-3" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_print_init" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="s2_print_minmax">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_print_init" parent="O_Omsj7NNCD-N1zRw8pb-10" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="Початковий массив" vertex="1">
+          <mxGeometry height="60" width="260" x="4" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-4" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_print_minmax" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="s2_remove_max">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_print_minmax" parent="O_Omsj7NNCD-N1zRw8pb-10" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="print min_of_array, max_of_array" vertex="1">
+          <mxGeometry height="60" width="260" x="4" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-5" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_remove_max" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="s2_remove_min">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_remove_max" parent="O_Omsj7NNCD-N1zRw8pb-10" style="whiteSpace=wrap;html=1;" value="example_array.remove(max_of_array)" vertex="1">
+          <mxGeometry height="60" width="260" x="4" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-6" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_remove_min" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="s2_print_final">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_remove_min" parent="O_Omsj7NNCD-N1zRw8pb-10" style="whiteSpace=wrap;html=1;" value="example_array.remove(min_of_array)" vertex="1">
+          <mxGeometry height="60" width="260" x="4" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="O_Omsj7NNCD-N1zRw8pb-7" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_print_final" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s2_end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_print_final" parent="O_Omsj7NNCD-N1zRw8pb-10" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="Массив після видалення" vertex="1">
+          <mxGeometry height="60" width="260" x="4" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_end" parent="O_Omsj7NNCD-N1zRw8pb-10" style="ellipse;whiteSpace=wrap;html=1;" value="Кінець" vertex="1">
+          <mxGeometry height="40" width="120" x="74" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_error">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint value="True" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3_label" connectable="0" parent="e3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="True" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_find_max">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint value="False" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4_label" connectable="0" parent="e4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="False" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_error" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;" target="s2_end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="220" />
+              <mxPoint x="440" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_gen" />
+        <mxCell id="e2" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_gen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_check" />
+        <mxCell id="e5" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_find_max" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_find_min" />
+        <mxCell id="e6" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_find_min" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_print_init" />
+        <mxCell id="e7" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_print_init" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_print_minmax" />
+        <mxCell id="e8" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_print_minmax" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_remove_max" />
+        <mxCell id="e9" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_remove_max" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_remove_min" />
+        <mxCell id="e10" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_remove_min" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_print_final" />
+        <mxCell id="e11" edge="1" parent="O_Omsj7NNCD-N1zRw8pb-10" source="s2_print_final" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="s2_end" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="FindMinLogic" name="find_min_logic">
+    <mxGraphModel dx="1004" dy="693" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="m_0" />
+        <mxCell id="m_1" parent="m_0" />
+        <mxCell id="min_start" value="Початок (find_min)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="m_1">
+          <mxGeometry x="354" y="40" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="min_init" value="min_i = array[0]" style="whiteSpace=wrap;html=1;" vertex="1" parent="m_1">
+          <mxGeometry x="374" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="min_loop" value="Для кожного i в array" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="m_1">
+          <mxGeometry x="334" y="200" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="min_cond" value="i &lt; min_i?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="m_1">
+          <mxGeometry x="374" y="300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="min_assign" value="min_i = i" style="whiteSpace=wrap;html=1;" vertex="1" parent="m_1">
+          <mxGeometry x="384" y="420" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="min_return" value="return min_i" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="m_1">
+          <mxGeometry x="374" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="min_end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="m_1">
+          <mxGeometry x="374" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="me1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="m_1" source="min_start" target="min_init" />
+        <mxCell id="me2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="m_1" source="min_init" target="min_loop" />
+        <mxCell id="me3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="m_1" source="min_loop" target="min_cond" />
+        <mxCell id="me4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="m_1" source="min_cond" target="min_assign">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" value="Так" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="me4_label" value="Так" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="me4">
+          <mxGeometry x="-0.3" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;" edge="1" parent="m_1" source="min_assign" target="min_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="440" />
+              <mxPoint x="300" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="me6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;" edge="1" parent="m_1" source="min_cond" target="min_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="340" />
+              <mxPoint x="560" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="me6_label" value="Ні" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="me6">
+          <mxGeometry x="-0.7" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="m_1" source="min_loop" target="min_return">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="230" />
+              <mxPoint x="640" y="490" />
+              <mxPoint x="434" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="me8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="m_1" source="min_return" target="min_end" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="FindMaxLogic" name="find_max_logic">
+    <mxGraphModel dx="1004" dy="693" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="x_0" />
+        <mxCell id="x_1" parent="x_0" />
+        <mxCell id="max_start" value="Початок (find_max)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="x_1">
+          <mxGeometry x="354" y="40" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="max_init" value="max_i = array[0]" style="whiteSpace=wrap;html=1;" vertex="1" parent="x_1">
+          <mxGeometry x="374" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="max_loop" value="Для кожного i в array" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="x_1">
+          <mxGeometry x="334" y="200" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="max_cond" value="i &gt; max_i?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="x_1">
+          <mxGeometry x="374" y="300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="max_assign" value="max_i = i" style="whiteSpace=wrap;html=1;" vertex="1" parent="x_1">
+          <mxGeometry x="384" y="420" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="max_return" value="return max_i" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="x_1">
+          <mxGeometry x="374" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="max_end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="x_1">
+          <mxGeometry x="374" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="x_1" source="max_start" target="max_init" />
+        <mxCell id="xe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="x_1" source="max_init" target="max_loop" />
+        <mxCell id="xe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="x_1" source="max_loop" target="max_cond" />
+        <mxCell id="xe4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="x_1" source="max_cond" target="max_assign">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" value="Так" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xe4_label" value="Так" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="xe4">
+          <mxGeometry x="-0.3" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xe5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;" edge="1" parent="x_1" source="max_assign" target="max_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="440" />
+              <mxPoint x="300" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xe6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;" edge="1" parent="x_1" source="max_cond" target="max_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="340" />
+              <mxPoint x="560" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xe6_label" value="Ні" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="xe6">
+          <mxGeometry x="-0.7" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xe7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="x_1" source="max_loop" target="max_return">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="230" />
+              <mxPoint x="640" y="490" />
+              <mxPoint x="434" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xe8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="x_1" source="max_return" target="max_end" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ArrayGenLogic" name="array_gen_logic">
+    <mxGraphModel dx="1004" dy="693" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="g_0" />
+        <mxCell id="g_1" parent="g_0" />
+        <mxCell id="gen_start" value="Початок (array_gen)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="g_1">
+          <mxGeometry x="354" y="40" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_input" value="length=10" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="g_1">
+          <mxGeometry x="374" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_init" value="array = []" style="whiteSpace=wrap;html=1;" vertex="1" parent="g_1">
+          <mxGeometry x="384" y="200" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_loop" value="Для _ від 0 до length" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="g_1">
+          <mxGeometry x="334" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_rand" value="val = random.randint(0, 100)" style="whiteSpace=wrap;html=1;" vertex="1" parent="g_1">
+          <mxGeometry x="339" y="380" width="190" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_append" value="array.append(val)" style="whiteSpace=wrap;html=1;" vertex="1" parent="g_1">
+          <mxGeometry x="374" y="460" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_return" value="return array" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="g_1">
+          <mxGeometry x="374" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="g_1">
+          <mxGeometry x="374" y="640" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_start" target="gen_input" />
+        <mxCell id="ge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_input" target="gen_init" />
+        <mxCell id="ge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_init" target="gen_loop" />
+        <mxCell id="ge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_loop" target="gen_rand" />
+        <mxCell id="ge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_rand" target="gen_append" />
+        <mxCell id="ge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;" edge="1" parent="g_1" source="gen_append" target="gen_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="480" />
+              <mxPoint x="300" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ge7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_loop" target="gen_return">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="310" />
+              <mxPoint x="580" y="530" />
+              <mxPoint x="434" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="g_1" source="gen_return" target="gen_end" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

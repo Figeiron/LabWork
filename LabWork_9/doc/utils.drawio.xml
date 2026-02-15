@@ -1,0 +1,89 @@
+<mxfile host="drawio-plugin" modified="2026-02-15T00:55:18.895Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="22.1.22" etag="on1hnEvefRXkII9qLuFE" type="embed">
+  <diagram id="GenMatrix" name="gen_matrix">
+    <mxGraphModel dx="771" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u_start" value="gen_matrix(rows, cols)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u_init_matrix" value="matrix = []" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u_loop_rows" value="for _ in range(rows)" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="200" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u_init_row" value="row = []" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="300" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u_loop_cols" value="for _ in range(cols)" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="380" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u_gen_rand" value="val = randint(-1000, 1000)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="480" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u_append_val" value="row.append(val)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u_append_row" value="matrix.append(row)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u_ret_matrix" value="return matrix" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ue1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_start" target="u_init_matrix" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_init_matrix" target="u_loop_rows" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_loop_rows" target="u_init_row" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_init_row" target="u_loop_cols" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_loop_cols" target="u_gen_rand" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_gen_rand" target="u_append_val" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="u_append_val" target="u_loop_cols" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="580" />
+              <mxPoint x="280" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ue8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_loop_cols" target="u_append_row" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="410" />
+              <mxPoint x="540" y="640" />
+              <mxPoint x="414" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ue9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="u_append_row" target="u_loop_rows" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="680" />
+              <mxPoint x="600" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ue10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="u_loop_rows" target="u_ret_matrix" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="230" />
+              <mxPoint x="240" y="740" />
+              <mxPoint x="414" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,187 @@
+<mxfile host="drawio-plugin" modified="2026-02-15T01:16:14.350Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" etag="GewDWxAAYRgDxHx8KPCR" version="22.1.22" type="embed" pages="3">
+  <diagram id="MainLogic" name="Main Logic">
+    <mxGraphModel dx="1527" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="main_0" />
+        <mxCell id="main_1" parent="main_0" />
+        <mxCell id="main_start" value="Початок" style="ellipse;whiteSpace=wrap;html=1;" parent="main_1" vertex="1">
+          <mxGeometry x="354" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="main_gen" value="g_matrix = gen_matrix(10, 10)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="main_1" vertex="1">
+          <mxGeometry x="324" y="120" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="main_sort_rows" value="sorted_rows_matrix = sort_matrix_rows(g_matrix)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="main_1" vertex="1">
+          <mxGeometry x="294" y="220" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="main_transpose" value="transposed_matrix = get_transposed_matrix(sorted_rows_matrix)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="main_1" vertex="1">
+          <mxGeometry x="264" y="320" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="main_sort_again" value="sorted_matrixx = sort_matrix_rows(transposed_matrix)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="main_1" vertex="1">
+          <mxGeometry x="284" y="420" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="main_print" value="pprint(sorted_matrixx)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="main_1" vertex="1">
+          <mxGeometry x="314" y="520" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="main_end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" parent="main_1" vertex="1">
+          <mxGeometry x="354" y="620" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="main_1" source="main_start" target="main_gen" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="main_1" source="main_gen" target="main_sort_rows" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" parent="main_1" source="main_sort_rows" target="main_transpose" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" parent="main_1" source="main_transpose" target="main_sort_again" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" parent="main_1" source="main_sort_again" target="main_print" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" parent="main_1" source="main_print" target="main_end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="SortFunc" name="sort(numbers)">
+    <mxGraphModel dx="1527" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="sort_0" />
+        <mxCell id="sort_1" parent="sort_0" />
+        <mxCell id="sort_start" value="Початок sort(numbers)" style="ellipse;whiteSpace=wrap;html=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="334" y="40" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sort_init_n" value="n = len(numbers)" style="whiteSpace=wrap;html=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="354" y="110" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sort_loop_i" value="i in range(n)" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="334" y="180" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sort_loop_j" value="j in range(0, n - i - 1)" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="314" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sort_if_val" value="numbers[j] &gt; numbers[j + 1]?" style="rhombus;whiteSpace=wrap;html=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="314" y="380" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sort_swap" value="Swap numbers[j], numbers[j + 1]" style="whiteSpace=wrap;html=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="314" y="500" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sort_return" value="return numbers" style="ellipse;whiteSpace=wrap;html=1;" parent="sort_1" vertex="1">
+          <mxGeometry x="130" y="190" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_start" target="sort_init_n" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_init_n" target="sort_loop_i" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_loop_i" target="sort_loop_j" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_loop_j" target="sort_if_val" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_if_val" target="sort_swap" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se5_label" value="True" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="se5" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="sort_1" source="sort_swap" target="sort_loop_j" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="530" />
+              <mxPoint x="280" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_if_val" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="420" />
+              <mxPoint x="570" y="600" />
+              <mxPoint x="280" y="600" />
+            </Array>
+            <mxPoint x="280" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se7_label" value="False" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="se7" vertex="1" connectable="0">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint x="-30" y="-26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="sort_1" source="sort_loop_j" target="sort_loop_i" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="310" />
+              <mxPoint x="560" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="sort_1" source="sort_loop_i" target="sort_return" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="SortMatrixRowsFunc" name="sort_matrix_rows">
+    <mxGraphModel dx="1527" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="smr_0" />
+        <mxCell id="smr_1" parent="smr_0" />
+        <mxCell id="smr_start" value="Початок sort_matrix_rows(matrix)" style="ellipse;whiteSpace=wrap;html=1;" parent="smr_1" vertex="1">
+          <mxGeometry x="314" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="smr_init" value="sorted_matrix = []" style="whiteSpace=wrap;html=1;" parent="smr_1" vertex="1">
+          <mxGeometry x="354" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="smr_loop" value="i in range(len(matrix))" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="smr_1" vertex="1">
+          <mxGeometry x="324" y="220" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="smr_call" value="sorted_row = sort(matrix[i])" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="smr_1" vertex="1">
+          <mxGeometry x="324" y="320" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="smr_append" value="sorted_matrix.append(sorted_row)" style="whiteSpace=wrap;html=1;" parent="smr_1" vertex="1">
+          <mxGeometry x="304" y="420" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="smr_return" value="return sorted_matrix" style="ellipse;whiteSpace=wrap;html=1;" parent="smr_1" vertex="1">
+          <mxGeometry x="334" y="540" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sme1" parent="smr_1" source="smr_start" target="smr_init" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sme2" parent="smr_1" source="smr_init" target="smr_loop" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sme3" parent="smr_1" source="smr_loop" target="smr_call" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sme4" parent="smr_1" source="smr_call" target="smr_append" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sme5" style="rounded=0;curved=0;" parent="smr_1" source="smr_append" target="smr_loop" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="450" />
+              <mxPoint x="270" y="350" />
+              <mxPoint x="270" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sme6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;" parent="smr_1" source="smr_loop" target="smr_return" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="250" />
+              <mxPoint x="560" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

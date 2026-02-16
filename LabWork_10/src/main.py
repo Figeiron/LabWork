@@ -38,7 +38,7 @@ class SchemeBreed:
 
 
 @unique
-class RegisterBreed(Enum):
+class RegisteredBreed(Enum):
     rock_breed_soft = SchemeBreed(TypeBreed.rock_breed_soft, 0, 0)
     rock_breed_hard = SchemeBreed(TypeBreed.rock_breed_hard, 1, 0)
     rock_breed_super_hard = SchemeBreed(TypeBreed.rock_breed_super_hard, 2, 0)
@@ -52,22 +52,22 @@ class RegisterBreed(Enum):
 class IBreed(ABC):
     @property
     @abstractmethod
-    def type(self) -> RegisterBreed:
+    def type(self) -> RegisteredBreed:
         pass
 
 
-class Breed(IBreed):  # ініціалізуємо клас модель оцінки
-    def __init__(self, number: int):  # реалізовуємо метод конструктор для класу
+class Breed(IBreed):
+    def __init__(self, number: int):
         self.number = number
-        self._type = self.__assign_breed_scheme(self.number)  # задаємо оцінку за таблицею ECTS
+        self._type = self.__assign_breed_scheme(self.number)
 
     @property
-    def type(self) -> RegisterBreed:
+    def type(self) -> RegisteredBreed:
         return self._type
 
     @staticmethod
     def __assign_breed_scheme(number: int):
-        for breed in RegisterBreed:
+        for breed in RegisteredBreed:
             if number == breed.value.number:
                 return breed
         raise ValueError("Breed number out of range")
@@ -79,63 +79,73 @@ class Breed(IBreed):  # ініціалізуємо клас модель оці�
 class BreedExploration:
     def __init__(self, breed_map: list[list[list]]):
         self.breed_map = self.__calc_breed_map(breed_map)
-        self.best_depth_col = 0
-
-    def calc_column_profit(self, x, y):
-        depth_column = self.__get_depth_col_list(x, y)
-        return self.__calc_breed_list_profit(depth_column)
-
-    def calc_best_column_profit(self):
-        best_profit = 0
-        col_cords = (0, 0)
-        for y in range(len(self.breed_map[0])):
-            for x in range(len(self.breed_map[0][0])):
-                depth_column = self.__get_depth_col_list(x, y)
-                profit = self.__calc_breed_list_profit(depth_column)
-                if profit > best_profit:
-                    best_profit = profit
-                    col_cords = (x, y)
-        return best_profit, col_cords
 
     @staticmethod
     def __calc_breed_map(breed_3d):
-        for i in range(len(breed_3d)):
-            for j in range(len(breed_3d[0])):
-                for x in range(len(breed_3d[0][0])):
-                    breed_3d[i][j][x] = Breed(breed_3d[i][j][x])
-        return breed_3d
-
-    def __get_depth_col_list(self, x, y):
-        return [self.breed_map[j][x][y] for j in range(len(self.breed_map))]
-
-    def __calc_breed_list_profit(self, breed_list: list):
-        col_profit = 0
-        for breed in breed_list:
-            col_profit += breed.type.value.profit
-        return col_profit
+        return [
+            [
+                [Breed(breed_3d[d][x][y]) for y in range(len(breed_3d[0][0]))]
+                for x in range(len(breed_3d[0]))
+            ]
+            for d in range(len(breed_3d))
+        ]
 
     def __repr__(self):
         return pformat(self.breed_map)
 
 
-# ratings = list(range(1, 101))  # ініціалізуємо заданий діапазон оцінок
+@dataclass
+class BreedColumn:
+    x: int
+    y: int
+    breed_list: list[RegisteredBreed]
 
-# if not ratings:  # перевірка на валідність діапазону
-#     raise ValueError("Ratings list not initialized")  # в разі хиибного діапазону викидаємо помилку
-#
-# counter = RatingCounter()  # ініціалізуємо клас лічильник
-# for numeric_rating in ratings:  # йдемо по елементах діапазону
-#     counter.add(  # додаємо оцінку до лічильника
-#         Rating(numeric_rating)  # ініціалізуємо оцінку з заданого числа діапазону
-#     )
-#
-# print(f"Таблиця підрахунку оцінок в діапазоні [{ratings[0]}; {ratings[-1]}]")
-# print(counter.get_pretty_table())
+    @staticmethod
+    def __calc_breed_list_profit(breed_list):
+        return sum(breed.type.value.profit for breed in breed_list)
+
+    @property
+    def profit(self):
+        return self.__calc_breed_list_profit(self.breed_list)
+
+    @property
+    def pos(self):
+        return (self.x, self.y)
+
+    def __iter__(self):
+        return iter(self.breed_list)
 
 
-n = gen_3d_dimension_massive(depth=1, rows=2)
-# e = BreedExploration(n)
-# print(e)
-# c = e.calc_best_column_profit()
-# print(c)
-pprint.pprint(n)
+class BreedDepthExploration(BreedExploration):
+    def __init__(self, breed_map: list[list[list]]):
+        super().__init__(breed_map)
+
+        self.breed_columns = self.__get_columns()
+
+    def __get_column(self, x, y):
+        breeds = []
+        for i in range(len(self.breed_map)):
+            breed = self.breed_map[i][x][y]
+            breeds.append(breed)
+        return BreedColumn(x,y, breeds)
+
+    def __get_columns(self):
+        column = []
+        for x in range(len(self.breed_map[0])):
+            for y in range(len(self.breed_map[0][0])):
+                column.append(self.__get_column(x, y))
+
+        return column
+
+
+    def get_best_profit_column(self):
+        best_column = self.breed_columns[0]
+        for column in self.breed_columns:
+            if column.profit > best_column.profit:
+                best_column = column
+        return best_column
+
+
+b_m = gen_3d_dimension_massive()
+exp = BreedDepthExploration(b_m)
+print(exp.get_best_profit_column().profit)

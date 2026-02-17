@@ -1,0 +1,264 @@
+<mxfile host="drawio-plugin" modified="2026-02-17T06:23:46.215Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" etag="jKmMJV6GC6RUxrSWGFff" version="22.1.22" type="embed" pages="4">
+  <diagram id="MainLogic" name="Головна логіка">
+    <mxGraphModel dx="771" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="m_start" value="Початок" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m_gen" value="b_m = gen_3d_dimension_massive()" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="304" y="120" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_init_exp" value="exp = BreedDepthExploration(b_m)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="304" y="220" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_get_best" value="best_col = exp.get_best_profit_column()" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="284" y="320" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_print" value="print(best_col.profit)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="334" y="420" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m_end" value="Кінець" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="m_start" target="m_gen" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="m_gen" target="m_init_exp" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="m_init_exp" target="m_get_best" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="m_get_best" target="m_print" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="m_print" target="m_end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="CalcBreedMap" name="Розрахунок карти порід">
+    <mxGraphModel dx="771" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c_start" value="__calc_breed_map(breed_3d)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c_init_res" value="breed_map = []" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c_loop_d" value="for d in range(len(breed_3d))" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="304" y="200" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_loop_x" value="for x in range(len(breed_3d[0]))" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="294" y="300" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_loop_y" value="for y in range(len(breed_3d[0][0]))" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="284" y="400" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_add_breed" value="Add Breed(breed_3d[d][x][y])" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="500" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_ret" value="return breed_map" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="344" y="640" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ce1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="c_start" target="c_init_res" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="c_init_res" target="c_loop_d" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="c_loop_d" target="c_loop_x" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="c_loop_x" target="c_loop_y" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="c_loop_y" target="c_add_breed" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="c_add_breed" target="c_loop_y" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="530" />
+              <mxPoint x="580" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="c_loop_y" target="c_loop_x" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="430" />
+              <mxPoint x="240" y="380" />
+              <mxPoint x="570" y="380" />
+              <mxPoint x="570" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="c_loop_x" target="c_loop_d" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="330" />
+              <mxPoint x="220" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="c_loop_d" target="c_ret" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="230" />
+              <mxPoint x="640" y="600" />
+              <mxPoint x="414" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="GetColumns" name="Отримання колонок">
+    <mxGraphModel dx="771" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gc_start" value="__get_columns()" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gc_init" value="columns = []" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gc_loop_x" value="for x in range(len(breed_map[0]))" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="304" y="200" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gc_loop_y" value="for y in range(len(breed_map[0][0]))" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="284" y="300" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gc_call" value="column = __get_column(x, y)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="314" y="400" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gc_add" value="columns.append(column)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="324" y="500" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gc_ret" value="return columns" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gce1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="gc_start" target="gc_init" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gce2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="gc_init" target="gc_loop_x" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gce3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="gc_loop_x" target="gc_loop_y" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gce4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="gc_loop_y" target="gc_call" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gce5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="gc_call" target="gc_add" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gce6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gc_add" target="gc_loop_y" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="520" />
+              <mxPoint x="580" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gce7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gc_loop_y" target="gc_loop_x" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="330" />
+              <mxPoint x="240" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gce8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gc_loop_x" target="gc_ret" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="230" />
+              <mxPoint x="640" y="580" />
+              <mxPoint x="414" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="BestProfit" name="Найкращий прибуток">
+    <mxGraphModel dx="771" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bp_start" value="get_best_profit_column()" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="324" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_init" value="best_column = breed_columns[0]" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="304" y="120" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_loop" value="for column in breed_columns" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="304" y="200" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_check" value="column.profit &gt; best_column.profit?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="284" y="300" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_update" value="best_column = column" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="334" y="420" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_ret" value="return best_column" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="334" y="520" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bpe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="bp_start" target="bp_init" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="bp_init" target="bp_loop" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="bp_loop" target="bp_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpe4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="bp_check" target="bp_update" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CIYlu1CQzED7vSAQ_qRD-1" value="True" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bpe4">
+          <mxGeometry x="-0.25" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpe5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="bp_update" target="bp_loop" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="440" />
+              <mxPoint x="600" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpe6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="bp_check" target="bp_loop" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="340" />
+              <mxPoint x="240" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CIYlu1CQzED7vSAQ_qRD-2" value="False" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bpe6">
+          <mxGeometry x="-0.8257" y="-4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpe7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="bp_loop" target="bp_ret" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="230" />
+              <mxPoint x="660" y="500" />
+              <mxPoint x="414" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\prog\python\EasyLabWork\LabWork_11\src\main.py", line 46, in <module>
+    matrix = parse_matrix_text(text)  # парсимо отриманий текст у матрицю чисел
+  File "C:\prog\python\EasyLabWork\LabWork_11\src\main.py", line 36, in parse_matrix_text
+    array_2.append(parse_array_text(raw_text[array_chars[0]:array_chars[1]+1:]))  # парсимо вкладений масив та додаємо до списку
+                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\prog\python\EasyLabWork\LabWork_11\src\main.py", line 22, in parse_array_text
+    num = int(num)  # конвертуємо рядок у ціле число
+ValueError: invalid literal for int() with base 10: ' 6Р°РІРї7'

@@ -1,15 +1,14 @@
-from utils import gen_matrix
+from LabWork_9.src.utils import gen_matrix
 from pprint import pprint
 
-g_matrix = gen_matrix(rows=10, cols=10)
 
 def sort(numbers):  # Реалізуємо ф-цію сортування методом бульбашки
     n = len(numbers)
     for i in range(n):  # Йдемо з кроком 1
         for j in range(n - i):  # Йдемо з кроком 1
             if j != 0:  # пропускаємо першу ітерацію
-                if numbers[j-1] > numbers[j]:  # якщо минулий елемент більше за теперішній
-                    numbers[j-1], numbers[j] = numbers[j], numbers[j-1]  # міняємо їх місцями
+                if numbers[j - 1] > numbers[j]:  # якщо минулий елемент більше за теперішній
+                    numbers[j - 1], numbers[j] = numbers[j], numbers[j - 1]  # міняємо їх місцями
     return numbers
 
 
@@ -24,8 +23,14 @@ def sort_matrix_rows(matrix: list[list]):  # Визначаємо ф-цію що
     return sorted_matrix
 
 
-sorted_rows_matrix = sort_matrix_rows(g_matrix)
-transposed_matrix = get_transposed_matrix(sorted_rows_matrix)
-sorted_matrixx = sort_matrix_rows(transposed_matrix)
+def run_solution(matrix):
+    sorted_rows_matrix = sort_matrix_rows(matrix)
+    transposed_matrix = get_transposed_matrix(sorted_rows_matrix)
+    sorted_matrixx = sort_matrix_rows(transposed_matrix)
 
-pprint(sorted_matrixx)
+    pprint(sorted_matrixx)
+
+if __name__ == '__main__':
+    run_solution(gen_matrix(rows=10, cols=10))
+
+
